@@ -137,3 +137,105 @@ environments:
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
         quartz:
             autoStartup: true
+
+rabbitmq:
+    enabled: false
+    connections:
+        - name: main
+          host: localhost
+          username: guest
+          password: guest
+    queues:
+        - name: bookQueue
+
+address:
+    street: 31 Spooner Street
+    city: Quahog
+    country: USA
+
+eu:
+    countries:
+        -
+            code: AT
+            name: Austria
+        -
+            code: BE
+            name: Belgium
+        -
+            code: BG
+            name: Bulgaria
+        -
+            code: CY
+            name: Cyprus
+        -
+            code: CZ
+            name: Czech Republic
+        -
+            code: DE
+            name: Germany
+        -
+            code: DK
+            name: Denmark
+        -
+            code: EE
+            name: Estonia
+        -
+            code: EL
+            name: Greece
+        -
+            code: ES
+            name: Spain
+        -
+            code: FI
+            name: Finland
+        -
+            code: FR
+            name: France
+        -
+            code: GB
+            name: United Kingdom
+        -
+            code: HR
+            name: Croatia
+        -
+            code: HU
+            name: Hungary
+        -
+            code: IE
+            name: Ireland
+        -
+            code: IT
+            name: Italy
+        -
+            code: LT
+            name: Lithuania
+        -
+            code: LU
+            name: Luxembourg
+        -
+            code: LV
+            name: Latvia
+        -
+            code: MT
+            name: Malta
+        -
+            code: NL
+            name: The Netherlands
+        -
+            code: PL
+            name: Poland
+        -
+            code: PT
+            name: Portugal
+        -
+            code: RO
+            name: Romania
+        -
+            code: SE
+            name: Sweden
+        -
+            code: SI
+            name: Slovenia
+        -
+            code: SK
+            name: Slovakia
