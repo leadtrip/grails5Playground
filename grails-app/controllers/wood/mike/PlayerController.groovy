@@ -11,8 +11,8 @@ import org.springframework.http.HttpStatus
  * A command object is a class that is used in conjunction with data binding, usually to allow
  * validation of data that may not fit into an existing domain class.
  * A class is only considered to be a command object when it is used as a parameter of an action.
-  * While a domain class can be used as a command object, so also can non-domain classes defined in other files
- * (or even classes defined in the same file as the controller using the class).
+ * While a domain class can be used as a command object, so also can non-domain classes defined in other files
+ * (or even classes defined in the same file as the controller using the class, see below).
  */
 @ReadOnly
 class PlayerController {
