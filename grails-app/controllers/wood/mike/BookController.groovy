@@ -17,4 +17,9 @@ class BookController {
         [bookInstance: bookDataService.findById(id)]
     }
 
+    // THIS IS A DUMB METHOD ADDED TO TEST MAKING CHANGES TO METACLASS, SEE BookControllerSpec
+    def getABook(Long id) {
+        Book.get( id )
+    }
+
 }

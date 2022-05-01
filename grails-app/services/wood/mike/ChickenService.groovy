@@ -9,4 +9,16 @@ class ChickenService {
         def menu = ['grain', 'worms', 'insects', 'slugs', 'beef', 'pasta', 'fish']
         menu[new Random().nextInt(menu.size())]
     }
+
+    def create(name) {
+        new Chicken(name: name).save()
+    }
+
+    def delete(chicken) {
+        chicken.delete()
+    }
+
+    def findByName(name ) {
+        Chicken.findByName(name)
+    }
 }
