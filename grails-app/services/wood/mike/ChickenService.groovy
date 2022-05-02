@@ -21,4 +21,12 @@ class ChickenService {
     def findByName(name ) {
         Chicken.findByName(name)
     }
+
+    def getChickenNamePublic( chicken ) {
+        getChickenNamePrivate( chicken )
+    }
+
+    private String getChickenNamePrivate( chicken ) {
+        chicken.name
+    }
 }

@@ -27,4 +27,12 @@ class ChickenController {
     def findChickenDomain( name ) {
         Chicken.findByName( name )
     }
+
+    def delete( chicken ) {
+        chickenService.delete( chicken )
+    }
+
+    def getChickenName( chicken ) {
+        chickenService.getChickenNamePublic( chicken )
+    }
 }
