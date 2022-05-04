@@ -67,4 +67,16 @@ class ChickenControllerSpec extends Specification implements ControllerUnitTest<
         then:
             found.name == newName
     }
+
+    void "test change metaClass on controller under test" () {
+        given:
+            def chickenName = 'Mark'
+            def fakeChickenName = 'Barry'
+            new Chicken( name: chickenName ).save()
+            controller.metaClass.getChickenName = { name -> fakeChickenName }       // modifying the metaClass on the class under test works in this example
+        when:
+            def res = controller.getChickenName( chickenName )
+        then:
+            res == fakeChickenName
+    }
 }
