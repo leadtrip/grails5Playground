@@ -79,4 +79,23 @@ class ChickenControllerSpec extends Specification implements ControllerUnitTest<
         then:
             res == fakeChickenName
     }
+
+    void "test getStuff" () {
+        when:
+            controller.getStuff()
+        then:
+            view == '/chicken/stuff'
+            model == [standardThing:'clouds', extraItem1:'bread', extraItem2:'cheese']
+    }
+
+    void "test getStuff changing metaClass on controller under test" () {
+        given:
+            Map addOns = [car: 'subaru']
+            controller.metaClass.getExtraStuff = { [stuffFromTest: addOns] }        // modifying the metaclass works in this scenario
+        when:
+           controller.getStuff()
+        then:
+            view == '/chicken/stuff'
+            model == [standardThing:'clouds', stuffFromTest: [car: 'subaru']]
+    }
 }

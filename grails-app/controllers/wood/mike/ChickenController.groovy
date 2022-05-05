@@ -35,4 +35,12 @@ class ChickenController {
     def getChickenName( chicken ) {
         chickenService.getChickenNamePublic( chicken )
     }
+
+    def getStuff() {
+        render view: "stuff", model: [standardThing: 'clouds'] << getExtraStuff()
+    }
+
+    protected Map getExtraStuff() {
+        return [extraItem1: 'bread', extraItem2: 'cheese']
+    }
 }
