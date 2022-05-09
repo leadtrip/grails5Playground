@@ -79,4 +79,18 @@ class ChickenServiceSpec extends Specification implements ServiceUnitTest<Chicke
         then:
             found.name == newName
     }
+
+    void "test findChickensCriteria"() {
+        given:
+            def brian = new Chicken(name: 'brian').save()
+            def geoff = new Chicken(name: 'geoff').save()
+            def debbie = new Chicken(name: 'debbie').save()
+            def sue = new Chicken(name: 'sue').save()
+        when:
+            def foundChickens = service.findChickensCriteria([brian.name, debbie.name])
+        then:
+            foundChickens.size == 2
+            foundChickens.contains(brian)
+            foundChickens.contains(debbie)
+    }
 }

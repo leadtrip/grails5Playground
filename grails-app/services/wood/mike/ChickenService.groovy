@@ -29,4 +29,10 @@ class ChickenService {
     private String getChickenNamePrivate( chicken ) {
         chicken.name
     }
+
+    def findChickensCriteria( List<String> chickenNames ) {
+        Chicken.createCriteria().list {
+            'in'('name', chickenNames )
+        }
+    }
 }
