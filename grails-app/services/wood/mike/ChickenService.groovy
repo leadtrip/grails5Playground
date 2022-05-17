@@ -1,6 +1,7 @@
 package wood.mike
 
 import grails.gorm.transactions.Transactional
+import org.hibernate.criterion.CriteriaSpecification
 
 @Transactional
 class ChickenService {
@@ -33,6 +34,31 @@ class ChickenService {
     def findChickensCriteria( List<String> chickenNames ) {
         Chicken.createCriteria().list {
             'in'('name', chickenNames )
+        }
+    }
+
+    /**
+     * @return  a list of property values [[1, 'brian'], [2, 'geoff']]
+     */
+    def allChickensCriteria() {
+        Chicken.createCriteria().list {
+            projections{
+                property("id")
+                property("name")
+            }
+        }
+    }
+
+    /**
+     * @return  a list of maps [[dbId: 1, nom: 'dave], [dbId:2, nom: 'sue']]
+     */
+    def allChickensCriteriaCustomPropertyNames() {
+        Chicken.createCriteria().list {
+            resultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP)
+            projections{
+                property( 'id', 'dbId' )
+                property( 'name', 'nom' )
+            }
         }
     }
 }

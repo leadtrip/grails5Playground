@@ -14,9 +14,6 @@ class ChickenServiceSpec extends Specification implements ServiceUnitTest<Chicke
         mockDomains Chicken
     }
 
-    def cleanup() {
-    }
-
     void "test create"() {
         when:
             def nigel = service.create( 'nigel' )
@@ -92,5 +89,17 @@ class ChickenServiceSpec extends Specification implements ServiceUnitTest<Chicke
             foundChickens.size == 2
             foundChickens.contains(brian)
             foundChickens.contains(debbie)
+    }
+
+    void "test allChickensCriteria"() {
+        given:
+            new Chicken(name: 'brian').save()
+            new Chicken(name: 'geoff').save()
+            new Chicken(name: 'debbie').save()
+            new Chicken(name: 'sue').save()
+        when:
+            def foundChickens = service.allChickensCriteria()
+        then:
+            foundChickens == [[1, 'brian'], [2, 'geoff'], [3, 'debbie'], [4, 'sue']]
     }
 }
