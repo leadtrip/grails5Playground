@@ -1,4 +1,4 @@
-package wood.mike.wood.mike
+package wood.mike
 
 import spock.lang.Specification
 import wood.mike.PlayerInfo

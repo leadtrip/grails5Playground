@@ -1,4 +1,4 @@
-package wood.mike.wood.mike
+package wood.mike
 
 import grails.testing.web.interceptor.InterceptorUnitTest
 import spock.lang.Specification
