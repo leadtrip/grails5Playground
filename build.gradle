@@ -76,6 +76,8 @@ dependencies {
     testImplementation "io.micronaut:micronaut-http-client"
     testRuntimeOnly "org.seleniumhq.selenium:selenium-chrome-driver:4.0.0"
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0"
+
+    implementation "org.grails.plugins:export:2.0.0"
 }
 
 bootRun {
