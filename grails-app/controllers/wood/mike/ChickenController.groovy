@@ -52,6 +52,7 @@ class ChickenController {
     }
 
     def saveChickenCatchCheckedException() {
+        chickenService.create()
         try {
             throwExceptionService.throwChecked()
         }
@@ -62,6 +63,7 @@ class ChickenController {
     }
 
     def saveChickenCatchUncheckedException() {
+        chickenService.create()
         try {
             throwExceptionService.throwUnchecked()
         }
