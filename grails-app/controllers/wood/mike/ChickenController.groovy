@@ -3,6 +3,7 @@ package wood.mike
 class ChickenController {
 
     def chickenService
+    def throwExceptionService
 
     def index() {
         render "Standing"
@@ -14,6 +15,12 @@ class ChickenController {
 
     def walk() {
         render "Walking"
+    }
+
+    def stuff() {}
+
+    def create() {
+        render (view: 'stuff', model: [result: chickenService.create()] )
     }
 
     def eat() {
@@ -42,5 +49,29 @@ class ChickenController {
 
     protected Map getExtraStuff() {
         return [extraItem1: 'bread', extraItem2: 'cheese']
+    }
+
+    def saveChickenCatchCheckedException() {
+        try {
+            throwExceptionService.throwChecked()
+        }
+        catch(Exception e) {
+            log.error('Exception caught ' + e.getMessage())
+        }
+        redirect(action: 'list')
+    }
+
+    def saveChickenCatchUncheckedException() {
+        try {
+            throwExceptionService.throwUnchecked()
+        }
+        catch(Exception e) {
+            log.error('Exception caught '  + e.getMessage())
+        }
+        redirect(action: 'list')
+    }
+
+    def list() {
+        respond chickenService.all()
     }
 }

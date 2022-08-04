@@ -11,8 +11,8 @@ class ChickenService {
         menu[new Random().nextInt(menu.size())]
     }
 
-    def create(name) {
-        new Chicken(name: name).save()
+    def create() {
+        new Chicken(name: UUID.randomUUID().toString().take(8) + '_create', address: new Address(street: 'Chick lane', city: 'Chickenham')).save()
     }
 
     def delete(chicken) {
@@ -60,5 +60,9 @@ class ChickenService {
                 property( 'name', 'nom' )
             }
         }
+    }
+
+    def all() {
+        Chicken.all
     }
 }

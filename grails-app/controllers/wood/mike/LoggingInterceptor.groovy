@@ -8,7 +8,7 @@ class LoggingInterceptor {
     }
 
     boolean before() {
-        log.info "Action invoked: URI=[${request.requestURL}] PARAMS=[${params}] METHOD=[${request.method}]"
+        log.info "Action invoked: URI=[${request.requestURL}] PARAMS=[${params}] METHOD=[${request.method}] for App ${grailsApplication.config.info.app.name}"
         true
     }
 }
