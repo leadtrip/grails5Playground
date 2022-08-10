@@ -1,8 +1,8 @@
 package wood.mike
 
 import groovy.transform.CompileStatic
+import org.springframework.http.HttpStatus
 
-@CompileStatic
 class BookController {
 
     static allowedMethods = [index: 'GET', show: 'GET']
@@ -22,4 +22,17 @@ class BookController {
         Book.get( id )
     }
 
+    def create() {
+        respond new Book(params)
+    }
+
+    def checkCommandValidationTransaction(BookCommand bookCommand) {
+        if(bookCommand.hasErrors()) {
+            println "BookCommand has errors ${bookCommand.errors}"
+        }
+
+        def book = bookDataService.save(bookCommand.title, bookCommand.author, bookCommand.about, bookCommand.href, bookCommand.image)
+
+        respond book
+    }
 }
