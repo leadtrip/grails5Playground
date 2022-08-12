@@ -78,6 +78,10 @@ dependencies {
     testRuntimeOnly "org.seleniumhq.selenium:selenium-firefox-driver:4.0.0"
 
     implementation "org.grails.plugins:export:2.0.0"
+    implementation("org.quartz-scheduler:quartz:2.2.3") {
+        exclude group: 'slf4j-api', module: 'c3p0'
+    }
+    implementation ('org.grails.plugins:quartz:2.0.13')
 }
 
 bootRun {
