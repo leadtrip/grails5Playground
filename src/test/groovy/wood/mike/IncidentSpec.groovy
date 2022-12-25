@@ -3,7 +3,7 @@ package wood.mike
 import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 
-class AnnouncementSpec extends Specification implements DomainUnitTest<Announcement> {
+class IncidentSpec extends Specification implements DomainUnitTest<Incident> {
 
     def setup() {
     }
